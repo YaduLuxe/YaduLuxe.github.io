@@ -4,100 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iOS Developer Portfolio</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
-        
-        .float-animation {
-            animation: float 6s ease-in-out infinite;
+        .floating {
+            animation: float 3s ease-in-out infinite;
         }
-        
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
-            100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+        .iphone-mockup {
+            width: 280px;
+            height: 540px;
+            border-radius: 40px;
+            background: #000;
+            border: 10px solid #333;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        
-        .pulse-glow {
-            animation: pulse-glow 3s infinite;
+        .iphone-screen {
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/280x540/?technology') no-repeat center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease-in-out;
+        }
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            position: absolute;
+            bottom: 40px;
+            width: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .app-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .app-icon:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen">
-    <!-- Hero Section -->
-    <div class="container mx-auto px-4 py-16">
-        <nav class="flex justify-between items-center mb-16">
-            <div class="text-2xl font-bold">Portfolio</div>
-            <div class="space-x-8">
-                <a href="#" class="hover:text-blue-400 transition-colors">Work</a>
-                <a href="#" class="hover:text-blue-400 transition-colors">About</a>
-                <a href="#" class="hover:text-blue-400 transition-colors">Contact</a>
-            </div>
-        </nav>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen space-y-12">
 
-        <div class="flex flex-col lg:flex-row items-center justify-between">
-            <div class="lg:w-1/2 mb-12 lg:mb-0">
-                <h1 class="text-5xl font-bold mb-6">iOS Developer</h1>
-                <h2 class="text-3xl text-blue-400 mb-6">Creating Amazing Mobile Experiences</h2>
-                <p class="text-gray-400 mb-8 text-xl">
-                    Passionate about crafting beautiful and intuitive iOS applications 
-                    that make a difference in people's lives.
-                </p>
-                <button class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg 
-                             transition-colors duration-300 transform hover:scale-105">
-                    View My Work
-                </button>
-            </div>
+    <!-- Header Section -->
+    <header class="text-center">
+        <h1 class="text-4xl font-bold">Yaduraj Singh</h1>
+        <p class="text-lg text-gray-400">iOS Developer | Swift | UI/UX Enthusiast</p>
+    </header>
 
-            <!-- iPhone Mockup -->
-            <div class="lg:w-1/2 flex justify-center">
-                <div class="float-animation">
-                    <div class="relative w-[300px] h-[600px] bg-gray-800 rounded-[60px] p-4 
-                                border-4 border-gray-700 pulse-glow">
-                        <!-- Screen -->
-                        <div class="w-full h-full bg-black rounded-[48px] overflow-hidden">
-                            <!-- Dynamic App Interface -->
-                            <div class="h-full bg-gradient-to-b from-blue-500 to-purple-600 p-6">
-                                <div class="space-y-4">
-                                    <div class="w-16 h-16 bg-white rounded-2xl"></div>
-                                    <div class="w-32 h-8 bg-white/20 rounded-lg"></div>
-                                    <div class="w-full h-32 bg-white/10 rounded-xl"></div>
-                                    <div class="w-full h-24 bg-white/10 rounded-xl"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Notch -->
-                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 
-                                  w-40 h-7 bg-black rounded-b-3xl"></div>
-                        <!-- Home Indicator -->
-                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 
-                                  w-32 h-1 bg-gray-600 rounded-full"></div>
-                    </div>
-                </div>
+    <!-- iPhone Mockup -->
+    <div class="iphone-mockup floating">
+        <div class="iphone-screen">
+            <div class="app-grid">
+                <div class="app-icon bg-blue-500 text-white">App 1</div>
+                <div class="app-icon bg-green-500 text-white">App 2</div>
+                <div class="app-icon bg-red-500 text-white">App 3</div>
+                <div class="app-icon bg-yellow-500 text-white">App 4</div>
+                <div class="app-icon bg-purple-500 text-white">App 5</div>
+                <div class="app-icon bg-pink-500 text-white">App 6</div>
             </div>
         </div>
     </div>
 
-    <!-- Skills Section -->
-    <div class="container mx-auto px-4 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-gray-800 p-6 rounded-xl transform hover:scale-105 transition-transform">
-                <h3 class="text-xl font-bold mb-4">Swift & SwiftUI</h3>
-                <p class="text-gray-400">Expert in building modern iOS applications using Swift and SwiftUI framework.</p>
+    <!-- About Section -->
+    <section class="w-3/4 text-center">
+        <h2 class="text-3xl font-semibold mb-4">About Me</h2>
+        <p class="text-gray-400">I am an iOS developer passionate about creating seamless and engaging user experiences. I specialize in Swift, SwiftUI, and UI/UX design.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="w-3/4 text-center">
+        <h2 class="text-3xl font-semibold mb-4">My Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <img src="https://source.unsplash.com/300x200/?app" alt="Project 1" class="rounded-md mb-3">
+                <h3 class="text-xl font-bold">Project One</h3>
+                <p class="text-gray-400">An innovative iOS app for productivity.</p>
             </div>
-            <div class="bg-gray-800 p-6 rounded-xl transform hover:scale-105 transition-transform">
-                <h3 class="text-xl font-bold mb-4">UI/UX Design</h3>
-                <p class="text-gray-400">Creating beautiful and intuitive user interfaces following Apple's design guidelines.</p>
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <img src="https://source.unsplash.com/300x200/?mobile" alt="Project 2" class="rounded-md mb-3">
+                <h3 class="text-xl font-bold">Project Two</h3>
+                <p class="text-gray-400">A fitness app built with SwiftUI.</p>
             </div>
-            <div class="bg-gray-800 p-6 rounded-xl transform hover:scale-105 transition-transform">
-                <h3 class="text-xl font-bold mb-4">App Architecture</h3>
-                <p class="text-gray-400">Implementing clean architecture patterns like MVVM and modular design.</p>
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <img src="https://source.unsplash.com/300x200/?technology" alt="Project 3" class="rounded-md mb-3">
+                <h3 class="text-xl font-bold">Project Three</h3>
+                <p class="text-gray-400">An AI-driven finance tracking app.</p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="w-3/4 text-center">
+        <h2 class="text-3xl font-semibold mb-4">Contact Me</h2>
+        <p class="text-gray-400">Let's work together! Feel free to reach out.</p>
+        <div class="mt-4">
+            <a href="mailto:your@email.com" class="px-6 py-2 bg-blue-500 rounded-full text-white text-lg font-semibold hover:bg-blue-600 transition">Email Me</a>
+        </div>
+    </section>
+
+    <script>
+        // Changing iPhone screen background on hover
+        document.querySelector(".iphone-screen").addEventListener("mouseover", function () {
+            this.style.backgroundImage = "url('https://source.unsplash.com/280x540/?apple')";
+        });
+        document.querySelector(".iphone-screen").addEventListener("mouseleave", function () {
+            this.style.backgroundImage = "url('https://source.unsplash.com/280x540/?technology')";
+        });
+    </script>
+
 </body>
 </html>
