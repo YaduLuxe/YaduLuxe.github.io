@@ -4,33 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iOS Developer Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
     <style>
         @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
-        .floating {
-            animation: float 3s ease-in-out infinite;
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
+            100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 3s infinite;
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen">
-    <div class="text-center">
-        <h1 class="text-4xl font-bold mb-4">Hi, I'm Yaduraj Singh</h1>
-        <p class="text-lg text-gray-400">iOS Developer | Swift | UI/UX Enthusiast</p>
+<body class="bg-gray-900 text-white min-h-screen">
+    <!-- Hero Section -->
+    <div class="container mx-auto px-4 py-16">
+        <nav class="flex justify-between items-center mb-16">
+            <div class="text-2xl font-bold">Portfolio</div>
+            <div class="space-x-8">
+                <a href="#" class="hover:text-blue-400 transition-colors">Work</a>
+                <a href="#" class="hover:text-blue-400 transition-colors">About</a>
+                <a href="#" class="hover:text-blue-400 transition-colors">Contact</a>
+            </div>
+        </nav>
 
-        <div class="mt-8 relative">
-            <div class="w-56 h-96 bg-black rounded-3xl border-4 border-gray-700 shadow-lg floating relative">
-                <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-10 h-2 bg-gray-300 rounded-full"></div>
-                <div class="absolute top-5 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-300 rounded-full"></div>
-                <img src="https://via.placeholder.com/200x400" alt="App Preview" class="w-full h-full rounded-3xl">
+        <div class="flex flex-col lg:flex-row items-center justify-between">
+            <div class="lg:w-1/2 mb-12 lg:mb-0">
+                <h1 class="text-5xl font-bold mb-6">iOS Developer</h1>
+                <h2 class="text-3xl text-blue-400 mb-6">Creating Amazing Mobile Experiences</h2>
+                <p class="text-gray-400 mb-8 text-xl">
+                    Passionate about crafting beautiful and intuitive iOS applications 
+                    that make a difference in people's lives.
+                </p>
+                <button class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg 
+                             transition-colors duration-300 transform hover:scale-105">
+                    View My Work
+                </button>
+            </div>
+
+            <!-- iPhone Mockup -->
+            <div class="lg:w-1/2 flex justify-center">
+                <div class="float-animation">
+                    <div class="relative w-[300px] h-[600px] bg-gray-800 rounded-[60px] p-4 
+                                border-4 border-gray-700 pulse-glow">
+                        <!-- Screen -->
+                        <div class="w-full h-full bg-black rounded-[48px] overflow-hidden">
+                            <!-- Dynamic App Interface -->
+                            <div class="h-full bg-gradient-to-b from-blue-500 to-purple-600 p-6">
+                                <div class="space-y-4">
+                                    <div class="w-16 h-16 bg-white rounded-2xl"></div>
+                                    <div class="w-32 h-8 bg-white/20 rounded-lg"></div>
+                                    <div class="w-full h-32 bg-white/10 rounded-xl"></div>
+                                    <div class="w-full h-24 bg-white/10 rounded-xl"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Notch -->
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 
+                                  w-40 h-7 bg-black rounded-b-3xl"></div>
+                        <!-- Home Indicator -->
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 
+                                  w-32 h-1 bg-gray-600 rounded-full"></div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="mt-6">
-            <a href="#" class="px-6 py-2 bg-blue-500 rounded-full text-white text-lg font-semibold hover:bg-blue-600 transition">View My Work</a>
+    <!-- Skills Section -->
+    <div class="container mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-800 p-6 rounded-xl transform hover:scale-105 transition-transform">
+                <h3 class="text-xl font-bold mb-4">Swift & SwiftUI</h3>
+                <p class="text-gray-400">Expert in building modern iOS applications using Swift and SwiftUI framework.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-xl transform hover:scale-105 transition-transform">
+                <h3 class="text-xl font-bold mb-4">UI/UX Design</h3>
+                <p class="text-gray-400">Creating beautiful and intuitive user interfaces following Apple's design guidelines.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-xl transform hover:scale-105 transition-transform">
+                <h3 class="text-xl font-bold mb-4">App Architecture</h3>
+                <p class="text-gray-400">Implementing clean architecture patterns like MVVM and modular design.</p>
+            </div>
         </div>
     </div>
 </body>
